@@ -128,7 +128,10 @@ def display_page(links, page=0, items_per_page=10):
 
 def main():
   def clear():
-    os.system('clear')
+        if os.name == 'nt':  # Windows
+            os.system('cls')
+        else:  # Linux
+            os.system('clear')
   
   username = input("Enter your username: ")
   links = generate_social_links(username)
